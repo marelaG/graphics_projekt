@@ -1,40 +1,118 @@
-#pragma once
+﻿#pragma once
 
 #ifndef ROOF_H_INCLUDED
 #define ROOF_H_INCLUDED
 
-int roofVertexCount = 18;
+int roofVertexCount = 24;
 
 float roofVertices[] = {
-    // Side walls
-    0.0f, 0.0f, -1.0f, 1.0f,  // A
-    0.0f, 1.0f, 0.0f, 1.0f,   // C
-    2.0f, 1.0f, 0.0f, 1.0f,   // F
+    // Dolna podstawa 
 
-    0.0f, 0.0f, -1.0f, 1.0f,  // A
-    2.0f, 1.0f, 0.0f, 1.0f,   // F
-    2.0f, 0.0f, -1.0f, 1.0f,  // D
+      1.0f, 0.0f, 0.0f, 1.0f,  // C 
+         0.0f, 0.0f, -1.0f, 1.0f, // B 
+        0.0f, 0.0f, 1.0f, 1.0f,  // A
 
-    0.0f, 0.0f, 1.0f, 1.0f,   // B
-    0.0f, 1.0f, 0.0f, 1.0f,   // C
-    2.0f, 1.0f, 0.0f, 1.0f,   // F
 
-    0.0f, 0.0f, 1.0f, 1.0f,   // B
-    2.0f, 1.0f, 0.0f, 1.0f,   // F
-    2.0f, 0.0f, 1.0f, 1.0f,   // E
 
-    0.0f, 0.0f, -1.0f, 1.0f,  // A
-    0.0f, 0.0f, 1.0f, 1.0f,   // B
-    2.0f, 0.0f, 1.0f, 1.0f,   // E
 
-    0.0f, 0.0f, -1.0f, 1.0f,  // A
-    2.0f, 0.0f, 1.0f, 1.0f,   // E
-    2.0f, 0.0f, -1.0f, 1.0f,  // D
+        // Górna podstawa 
+            0.0f, 2.0f, -1.0f, 1.0f, // E 
+         1.0f, 2.0f, 0.0f, 1.0f,  // F
+
+         0.0f, 2.0f, 1.0f, 1.0f,  // D 
+
+
+         // Ściany boczne (rotated around Y-axis)
+         0.0f, 0.0f, 1.0f, 1.0f,  // A -> (Z, Y, -X)
+         1.0f, 0.0f, 0.0f, 1.0f,  // C -> (Z, Y, -X)
+         1.0f, 2.0f, 0.0f, 1.0f,  // F -> (Z, Y, -X)
+
+         0.0f, 0.0f, 1.0f, 1.0f,  // A -> (Z, Y, -X)
+         1.0f, 2.0f, 0.0f, 1.0f,  // F -> (Z, Y, -X)
+         0.0f, 2.0f, 1.0f, 1.0f,  // D -> (Z, Y, -X)
+
+         0.0f, 0.0f, -1.0f, 1.0f, // B -> (Z, Y, -X)
+         1.0f, 0.0f, 0.0f, 1.0f,  // C -> (Z, Y, -X)
+         1.0f, 2.0f, 0.0f, 1.0f,  // F -> (Z, Y, -X)
+
+         0.0f, 0.0f, -1.0f, 1.0f, // B -> (Z, Y, -X)
+         1.0f, 2.0f, 0.0f, 1.0f,  // F -> (Z, Y, -X)
+         0.0f, 2.0f, -1.0f, 1.0f, // E -> (Z, Y, -X)
+
+         0.0f, 0.0f, 1.0f, 1.0f,  // A -> (Z, Y, -X)
+         0.0f, 0.0f, -1.0f, 1.0f, // B -> (Z, Y, -X)
+         0.0f, 2.0f, -1.0f, 1.0f, // E -> (Z, Y, -X)
+
+         0.0f, 0.0f, 1.0f, 1.0f,  // A -> (Z, Y, -X)
+         0.0f, 2.0f, -1.0f, 1.0f, // E -> (Z, Y, -X)
+         0.0f, 2.0f, 1.0f, 1.0f,  // D -> (Z, Y, -X)
 };
 
-// Texture coordinates
+// Normals for each vertex
+float roofNormals[] = {
+    // Bottom base (facing -Z, becomes -X after rotation)
+        // Górna podstawa
+
+
+
+    0.7071f, 0.0f, -0.7071f, 0.0f, // B
+    0.0f, 0.0f, -1.0f,  0.0f,      // F
+        0.7071f, 0.0f, -0.7071f, 0.0f, // C
+
+
+    -0.7071f, 0.0f, -0.7071f,0.0f, // A
+    0.0f, 0.0f, -1.0f,      0.0f,  // B
+    0.0f, 0.0f, -1.0f,   0.0f,    // C
+
+
+
+
+
+    // Ściany boczne
+
+
+    0.7071f, 0.0f, -0.7071f, 0.0f, // B
+    0.7071f, 0.0f, -0.7071f, 0.0f, // C
+    0.0f, 0.0f, -1.0f,  0.0f,      // F
+
+     0.7071f, 0.0f, -0.7071f, 0.0f, // B
+    0.0f, 0.0f, -1.0f,    0.0f,    // F
+    0.0f, 0.0f, -1.0f,   0.0f,     // E
+
+    -0.7071f, 0.0f, -0.7071f,0.0f, // A
+    0.0f, 0.0f, -1.0f,      0.0f,  // B
+    0.0f, 0.0f, -1.0f,   0.0f,    // C
+
+    -0.7071f, 0.0f, -0.7071f,0.0f, // A
+    0.0f, 0.0f, -1.0f,   0.0f,     // C
+    0.0f, 0.0f, -1.0f,   0.0f,     // F
+
+    -0.7071f, 0.0f, -0.7071f,0.0f, // A
+    0.0f, 0.0f, -1.0f,      0.0f,  // B
+    0.0f, 0.0f, -1.0f,   0.0f,    // C
+
+    -0.7071f, 0.0f, -0.7071f,0.0f, // A
+    0.0f, 0.0f, -1.0f,   0.0f,     // C
+    0.0f, 0.0f, -1.0f,   0.0f,     // F
+
+
+
+
+};
+
+// Współrzędne tekstur
 float roofTexCoords[] = {
-    // Side walls
+    // Dolna podstawa
+    0.0f, 0.0f,  // A
+    1.0f, 0.0f,  // B
+    0.5f, 1.0f,  // C
+
+    // Górna podstawa
+    0.0f, 0.0f,  // D
+    1.0f, 0.0f,  // E
+    0.5f, 1.0f,  // F
+
+    // Ściany boczne
     0.0f, 0.0f,  // A
     1.0f, 0.0f,  // C
     1.0f, 1.0f,  // F
@@ -58,34 +136,6 @@ float roofTexCoords[] = {
     0.0f, 0.0f,  // A
     1.0f, 1.0f,  // E
     0.0f, 1.0f,  // D
-};
-
-// Normals
-float roofNormals[] = {
-    // Side walls
-    0.0f, 0.7071f, 0.7071f,  // Normal for triangle ACF
-    0.0f, 0.7071f, 0.7071f,  // Normal for triangle ACF
-    0.0f, 0.7071f, 0.7071f,  // Normal for triangle ACF
-
-    0.0f, 0.7071f, 0.7071f,  // Normal for triangle AFD
-    0.0f, 0.7071f, 0.7071f,  // Normal for triangle AFD
-    0.0f, 0.7071f, 0.7071f,  // Normal for triangle AFD
-
-    0.0f, 0.7071f, -0.7071f,  // Normal for triangle BCF
-    0.0f, 0.7071f, -0.7071f,  // Normal for triangle BCF
-    0.0f, 0.7071f, -0.7071f,  // Normal for triangle BCF
-
-    0.0f, 0.7071f, -0.7071f,  // Normal for triangle BFE
-    0.0f, 0.7071f, -0.7071f,  // Normal for triangle BFE
-    0.0f, 0.7071f, -0.7071f,  // Normal for triangle BFE
-
-    0.0f, -1.0f, 0.0f,  // Normal for triangle ABE
-    0.0f, -1.0f, 0.0f,  // Normal for triangle ABE
-    0.0f, -1.0f, 0.0f,  // Normal for triangle ABE
-
-    0.0f, -1.0f, 0.0f,  // Normal for triangle AED
-    0.0f, -1.0f, 0.0f,  // Normal for triangle AED
-    0.0f, -1.0f, 0.0f,  // Normal for triangle AED
 };
 
 #endif // ROOF_H_INCLUDED
